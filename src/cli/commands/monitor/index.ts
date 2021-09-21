@@ -343,7 +343,8 @@ function getProjectAttribute<T>(
   if (extra.length > 0) {
     throw new Error(
       `${extra.length} invalid ${attribute}: ${extra.join(',')}. ` +
-      `Possible values are: ${permittedValues.join(', ')}`);
+        `Possible values are: ${permittedValues.join(', ')}`,
+    );
   }
 
   return values;
