@@ -358,7 +358,7 @@ export const GenericTests: AcceptanceTests = {
     'error 401 handling': (params, utils) => async (t) => {
       utils.chdirWorkspaces();
 
-      params.server.setNextStatusCodeAndResponse(401, {});
+      params.server.setNextStatusCode(401);
 
       try {
         await params.cli.test('ruby-app-thresholds');
@@ -374,7 +374,7 @@ export const GenericTests: AcceptanceTests = {
     'error 403 handling': (params, utils) => async (t) => {
       utils.chdirWorkspaces();
 
-      params.server.setNextStatusCodeAndResponse(403, {});
+      params.server.setNextStatusCode(403);
 
       try {
         await params.cli.test('ruby-app-thresholds');
@@ -390,7 +390,7 @@ export const GenericTests: AcceptanceTests = {
     'error 500 handling': (params, utils) => async (t) => {
       utils.chdirWorkspaces();
 
-      params.server.setNextStatusCodeAndResponse(500, {});
+      params.server.setNextStatusCode(500);
 
       try {
         await params.cli.test('ruby-app-thresholds');

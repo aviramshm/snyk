@@ -252,7 +252,8 @@ export const GradleTests: AcceptanceTests = {
       t.true(((spyPlugin.args[0] as any)[2] as any).allSubProjects);
 
       let policyCount = 0;
-      params.server.requests
+      params.server
+        .getRequests()
         .filter((r) => r.url === '/api/v1/test-dep-graph?org=')
         .forEach((req) => {
           if (
