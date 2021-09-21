@@ -457,6 +457,10 @@ function validateUnsupportedSarifCombinations(args) {
   ) {
     throw new MissingOptionError('sarif-file-output', ['--file']);
   }
+
+  if (args.options['target-ref'] && args.command !== 'monitor') {
+    throw new UnsupportedOptionCombinationError([args.command, 'target-ref']);
+  }
 }
 
 async function saveResultsToFile(
