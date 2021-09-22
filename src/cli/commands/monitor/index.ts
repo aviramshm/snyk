@@ -335,14 +335,16 @@ function getProjectAttribute<T>(
 
   // When it's specified without the =, we interpret this to clear it too.
   if (options[attribute] === true) {
-    return [];
+    throw new Error(
+      `--${attribute} must contain an '=' with a comma-separated list of values. To clear all existing values, pass no values i.e. --${attribute}=`,
+    );
   }
 
   const values = options[attribute].split(',');
   const extra = values.filter((value) => !permittedValues.includes(value));
   if (extra.length > 0) {
     throw new Error(
-      `${extra.length} invalid ${attribute}: ${extra.join(',')}. ` +
+      `${extra.length} invalid ${attribute}: ${extra.join(', ')}. ` +
         `Possible values are: ${permittedValues.join(', ')}`,
     );
   }
